@@ -5,5 +5,10 @@ end
 
 get '/tracks' do
   @tracks = Track.all
-  erb :'messages/index'
+  erb :'tracks/index'
+end
+
+get '/tracks/new' do
+  @tracks = Track.new
+  erb :'tracks/new'
 end
