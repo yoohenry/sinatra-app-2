@@ -1,5 +1,7 @@
 # Homepage (Root path)
 
+
+
 get '/tracks' do
   @tracks = Track.all
   erb :'tracks/index'
@@ -27,7 +29,7 @@ get '/tracks/login' do
   erb :'tracks/login'
 end
 
-post '/track/login' do
+post '/tracks/login' do
   @user = User.find_by(username: params[:username], password: params[:password])
   if @user
     session[:user_id] = @user.id
