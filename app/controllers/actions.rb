@@ -1,10 +1,4 @@
 # Homepage (Root path)
-# enable :sessions
-
-# get '/' do
-#   session["value"] = "hello world"
-#   erb :index
-# end
 
 get '/tracks' do
   @tracks = Track.all
@@ -22,11 +16,26 @@ post '/tracks/signup' do
     password: params[:password]
     )
     if @user.save
-      cookies[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect to("/tracks")
     else
       erb :"tracks/signup"
     end
+end
+
+get '/tracks/login' do
+  erb :'tracks/login'
+end
+
+post '/track/login' do
+  @user = User.find_by(username: params[:username], password: params[:password])
+  if @user
+    session[:user_id] = @user.id
+    redirect to ("/tracks")
+  else
+    # @error_messages = ['Invalid username or password, stupee']
+    erb :"tracks/login"
+  end
 end
 
 get '/tracks/new' do

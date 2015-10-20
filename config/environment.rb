@@ -28,4 +28,6 @@ end
 require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
-require APP_ROOT.join('app', 'actions')
+# require APP_ROOT.join('app', 'actions')
+
+Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
