@@ -25,4 +25,3 @@ post '/tracks' do
       erb :'tracks/new'
     end
   end
-  

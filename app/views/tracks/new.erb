@@ -1,14 +1,14 @@
 <% if @track.errors.any? %>
   <div>
-    <strong>Some issues with your tracks</strong>
+    <strong>Some issues with adding your track</strong>
     <ul>
       <% @track.errors.full_messages.each do |message| %>
-        <li><%= track %></li>
+        <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  
+
 <form method="post" action="/tracks">
   <div>
     <label>Title:</label>
@@ -20,7 +20,7 @@
   </div>
   <div>
     <label>URL:</label>
-    <input type="text" name="urls" value="<% @track.url %>">
+    <input type="text" name="url" value="<% @track.url %>">
   </div>
   <div>
     <input type="submit" value="Submit">
