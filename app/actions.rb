@@ -1,5 +1,8 @@
 # Homepage (Root path)
+enable :sessions
+
 get '/' do
+  session["value"] = "hello world"
   erb :index
 end
 
@@ -24,4 +27,4 @@ post '/tracks' do
     else
       erb :'tracks/new'
     end
-  end
+end
