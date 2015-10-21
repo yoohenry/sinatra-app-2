@@ -1,7 +1,5 @@
 # Homepage (Root path)
 
-
-
 get '/tracks' do
   @tracks = Track.all
   erb :'tracks/index'
@@ -35,7 +33,7 @@ post '/tracks/login' do
     session[:user_id] = @user.id
     redirect to ("/tracks")
   else
-    # @error_messages = ['Invalid username or password, stupee']
+    @error_messages = 'Invalid username or password, stupee'
     erb :"tracks/login"
   end
 end
